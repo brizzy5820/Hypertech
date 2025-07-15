@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP(object-oriented-program)</title>
+</head>
+<body>
+<div id="show"></div>
+    <script>
+        class Table{
+            constructor( color, mass,weight){
+                this.color= color
+                this.mass=mass
+                this.weight=weight
+            }
+        }
+        class Shape{
+            constructor(width,height,area){
+                this.width=width
+                this.height=height
+                this.area=area
+            }
+        }
+        // imheritance
+        
+           let array=[]
+        const mytable= new Table( "Red","3kg","200g");
+        const mytable2= new Table( "blue","5kg","600g");
+        const myshape= new Shape(50,50,200);
+          console.log(myshape)
+        array.push(`${mytable.color} ${mytable.mass}  ${ mytable.weight}${mytable2.color} ${mytable2.mass}  ${ mytable2.weight}`)
+        array.forEach((value, number)=>
+            show.innerHTML+= `<div>${number+1}  ${value}</div>`
+    )
+     
+    </script>
+</body>
+</html>
