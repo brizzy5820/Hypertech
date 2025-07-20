@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+            list-style-type: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;       
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        header{
+            display: flex;
+            background-color:  #003B95;
+            justify-content: space-around;
+            height: 9vh;
+            align-items: center;
+            color: white;
+            backdrop-filter: blur(3px);
+            width: auto;
+        }        
+        header nav{
+            font-size: 1.2em;
+            width: 60%;
+            display: flex;
+            align-items:center;
+            justify-content: end;
+        }
+        header nav ul{
+            display: flex;
+            gap: 1.8em;
+        }
+        header nav ul li{
+            cursor: pointer;
+        }
+        header nav ul li a{
+            color: white;
+        }
+        header nav ul li:hover{
+            color: #6e98f1;
+        }
+        main{
+            width: 100%;
+             display: flex; 
+             flex-direction: column;
+             gap: 1em;
+             background-color: #003B95;
+             align-items: center;
+             position: relative;
+             /* padding: 1em; */
+        }
+        main h2{
+            color:white;
+        }
+        .txn{
+          background-color:white;
+          border-radius:0.5em ;
+          box-shadow: 0px 0px 2px 2px #043783;
+          width:80%;
+          display: flex;
+          flex-direction:column ;
+          align-items: center;
+          justify-content: center;
+          padding: 1.2em;
+          margin-bottom: 1.2em;
+        }
+        .txnspan{
+          display: flex;
+          width: 60%; 
+          justify-content: space-between;
+        }
+        .txnspan span{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 47%;
+            gap: 6px;
+        }
+
+        .txn button{
+        background-color: #003B95;
+        color: white;
+        width: 60%;
+        border:none;
+        padding: 7px;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+        }
+        .budgetdisp{
+            width: 80%;
+            margin-top: 1.2em;
+            background-color: white;
+            box-shadow: 0px 0px 2px 2px #043783;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em;
+            gap: 2em;
+            padding:1.2em;
+            flex-direction: column;
+         
+        }
+        .budgetdisp span{
+            display: flex;
+            color: #3a9b0d;
+        }
+        .budgetdisp div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    flex-direction: column;
+           
+        }
+        .budgetdisp h3{
+            font-weight: lighter;
+        /* font-size: 1.3em; */
+        }
+        .budgetdisp strong{
+            font-size: 2em;
+        }
+         input{
+            border: none;
+            height: 3.6vh;
+            padding: 7px;
+            box-shadow: 0px 0px 2px 2px rgb(173, 168, 168);
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+        /* width: 50%; */
+        }
+    .Total{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+    .Bamount{
+        gap: 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .Bamount button{
+        background-color: #003B95;
+        color: white;
+        width: 100%;
+        border:none;
+        padding: 7px;
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+    }
+    .phase2 h2{
+        display: flex;
+        align-items: center;
+        margin-top: 1.3em;
+        justify-content: center;
+        text-align: center;
+    }
+    .phase2 section{
+        gap:8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+    }
+    .phase2 div{
+        width: 85%;
+        background-color: white;
+        display: flex;
+        box-shadow: 0px 0px 2px 2px rgb(173, 168, 168);
+        border-radius: 0.4em;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1.2em;
+    }
+    .phase2 span{
+        width: 100%;
+        font-size: 1.3em;
+    }
+    .outlinecash{
+        display: flex;
+        color: #be1812;
+        justify-content: end;
+    }
+    @media (max-width:767px){
+        .budgetdisp h3{
+        font-weight: 500;
+    font-size: 15px;
+        }
+        header nav{
+            width: 50vw;
+            
+        }
+        .budgetdisp strong{
+            font-size: 1.4em;
+        }
+    }
+    </style>
+    
+</head>
+<body>
+    <header>
+    <h2>BFinance</h2>
+        <nav>
+            <ul>
+                <li  id="Txnli"> <a href="">Logout</a> </li>
+                <li  id="Hstryli"> <a href="">Help</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+<main class="txncover" id="Txn">
+    <!-- <h2>My Budget</h2> -->
+    <section class="budgetdisp">
+        <div>
+           <h3> Current Balance</h3>
+           <span>
+            <strong>&#8358</strong>
+            <strong id="currentBal"></strong>
+        </span>
+        </div>
+        <section class="Total">
+            <div>
+                <h3>Total Expense</h3>
+                <span style="color: #be1812;">
+                    <strong>-&#8358</strong>
+                    <strong id="expenseBal"></strong>
+                </span>
+            </div>
+            <div>
+                <h3> Total Budget</h3>
+                <span style="color: #003B95;">
+                    <strong>&#8358</strong>
+                    <strong id="totalBal"></strong>
+                </span>
+            </div>
+        </section>
+       <div class="Bamount" >
+        <label for="budAmnt">Budget Amount</label>
+       <div>
+        <input type="number" id="budAmnt" placeholder="Input Budget amout">
+        <button onclick="initialBud()">Enter</button>
+       </div>
+       </div>
+    </section> 
+    <section class="txn" >   
+        <span class="txnspan">
+        <span>
+            <label for=""> Expense</label>
+         <input type="number" id="expenseBud" placeholder="Input amount to be spent">
+        </span>
+        <span> 
+            <label for="">Remark</label>
+            <input type="text" id="budCaption" placeholder="What's the money for">
+        </span>
+        </span>
+        <button onclick="finalBud()">Comfirm</button>
+     </section>
+</main>
+ <div class="phase2">
+    <h2>Outline <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.
+        001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#000" d="M10.5 16.035L7.404 12.94a1.5 1.5 0 1 0-2.122 2.121l5.657 5.657a1.5 1.5 0 0 0 2.122 0l5.657-5.656a1.5 1.5 0 1 0-2.122-2.122L13.5 16.035V4.5a1.5 1.5 0 0 0-3 0z"/></g></svg>
+        </h2>
+  <section id="out">
+    <div><p>List of expenses will be displayed here</p></div>
+  </section>  
+ </div>
+<script>
+     totalBal.innerHTML =0
+     currentBal.innerHTML=0
+     expenseBal.innerHTML=0
+     let budgetList=[]
+      const initialBud =()=> {
+        totalBal.innerHTML= budAmnt.value
+        if(budAmnt.value==""){
+            totalBal.innerHTML=0
+            budAmnt.value="Set a budget"
+        }
+        budAmnt.value=""
+        currentBal.innerHTML=` ${totalBal.innerHTML-expenseBal.innerHTML}`
+    }
+
+    const finalBud=()=>{
+     expenseBal.innerHTML= `${Number(expenseBud.value)+ Number(expenseBal.innerHTML)}`
+     currentBal.innerHTML=` ${totalBal.innerHTML-expenseBal.innerHTML}`   
+     if(expenseBud.value==""){
+        budgetList.push()
+     }
+     else{
+     budgetList.push({cashout:expenseBud.value,caption: budCaption.value})
+     out.innerHTML=""
+     budgetList.forEach((list,n)=> 
+     out.innerHTML+=`<div>
+        <span>${n+1} ${list.caption}</span> 
+        <span class="outlinecash"> <strong>-&#8358</strong>${list.cashout}</span>
+        </div>` 
+     )
+     expenseBud.value=""
+     budCaption.value=""
+     } 
+    }
+
+</script>
+</body>
+</html>
